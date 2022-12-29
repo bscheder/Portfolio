@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <br>
+</div>
+    <div class="col-3 selector">
+        <div class="list-group sticky-top">
+        {% if selected_group == 'All Products': %}
+        <a class="list-group-item list-group-item-action product-selector active" href="{{ url_for('select_group',group='All Products') }}"><b>All Porducts</b></a>
+        {% else %}
+        <a class="list-group-item list-group-item-action product-selector" href="{{ url_for('select_group',group='All Products') }}"><b>All Porducts</b></a>
+        {% endif %}
+  
+        {% for group in groups: %}
+            {% if selected_group == group: %}
+            <a class="list-group-item list-group-item-action product-selector active" href="{{ url_for('select_group',group=group) }}" ><b>{{group}}</b></a>
+            {% else %}
+            <a class="list-group-item list-group-item-action product-selector" href="{{ url_for('select_group',group=group) }}" ><b>{{group}}</b></a>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+</div>
+<div>
+    <ol style="overflow-y:hidden">
+        <div style="padding-bottom: 2%;">
+                <form action="{{ url_for('search') }}" method="post">
+                    <div class="div-table search-bar">
+                        <div class="inline-input">
+                            <input type="text" name="searched" placeholder="Search..." value="{{searched}}"/>
+                        </div>
+                        <button type="submit" class="btn btn-green">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            <p style="float: left;">&nbsp;&nbsp;</p>
+            <form action="{{ url_for('sort') }}" method="post">
+                <div class="div-table">
+                    <div class="inline-select filter">
+                        <select class="form-control filter" name="product-filter" action="{{ url_for('sort') }}">
+                            <option>{{sort_by}}</option>
+                            <option>&#x2191;Price</option>
+                            <option>&#x2193;Price</option>
+                            <option>&#x2191;Name</option>
+                            <option>&#x2193;Name</option>
+                        </select>     
+                    </div>
+                    <button type="submit" class="btn btn-green">OK.</button>
+                </div>
+            </form>
+        </div>
+        {% for product in products: %}
+        <div class="card product-card col-lg-6 col-md-4 col-sm-10 col-10">
+            <img   class="card-img-top" src="{{product.img_url}}" alt="Card image cap">
+            <div class="card-body">
+                <h6 style="height: 2rem;" class="card-title"><b>{{product.title}}</b></h6>
+                {% if product.description|length > 100 %}
+                <p class="card-text product-description" style="overflow-y: scroll;">{{product.description}}</p>
+                {% else %}
+                <p class="card-text product-description">{{product.description}}</p>
+                {% endif %}
+                <hr>
+                <h4 style="text-align:center"><i>{{product.price}}&nbsp;$</i></h4> 
+                <hr>
+                <a href="{{ url_for('add_to_cart',product_id=product.id) }}" class="btn btn-green btn-large btn-block">Add to cart</a>
+            </div>
+        </div>
+    {% endfor %}
+</ol>
+</div>
+
+<h5 class="footer"><i>Fish-O-Rama&copy;{{year}}</i></h5>
+
+{% endblock %}
+{% block modal %}{% endblock %}

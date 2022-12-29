@@ -1,0 +1,91 @@
+a {
+    color: lightblue;
+}
+
+.add-form {
+  margin-left: 20%;
+  margin-right: 20%;
+  color: white;
+  
+}
+
+.cafe-image {
+  margin-top: 10px;
+  height:85%;
+  width: 90%;
+  border-radius: 8px;
+}
+
+.cafe-details {
+  display: inline;
+  font-weight: bold;
+}
+
+
+body{
+  background-image: url('../images/background_texture.jpg');
+  background-size: 100%; 
+}
+
+.centerized-white {
+  text-align: center;
+  color: white 
+}
+
+.flip-card {
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  background-image: url('../images/card-background_texture.jpg');
+  border-radius: 8px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
+}
+
+.flip-card-back {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-image: url(https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80);
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 8px;
+}
+
+.container {
+  margin-top: 10px;
+  border-radius: 8px;
+  background-color: #333333;
+  width:90%;
+  height: 85%;
+}  

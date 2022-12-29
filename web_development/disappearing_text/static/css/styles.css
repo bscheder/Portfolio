@@ -1,0 +1,46 @@
+
+textarea:focus { 
+    outline: none !important;
+    border-color: white;
+
+}
+
+.footer {
+    color: white;
+    margin-top: 5px;
+    font-style: italic;
+    text-align: center;
+}
+
+.timebar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+}
+
+.text-input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 90vh;
+    width: 98%;
+    outline: none !important;
+    border-color: white;
+    box-shadow: 0 0 10px white;
+
+    /* ha az id kezde lejarni ezzel kell elhalvanyitania  textet */
+    /* color: transparent;
+    text-shadow: 0 0 3px red;
+    border-color: red;
+     box-shadow: 0 0 10px red; */
+}
+
+
+/* ez kell majd priosba hogy  valtozzon meg a border szine + blur es valahogy keruljon kozepre */
+/* textarea:focus { 
+    outline: none !important;
+    border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+ } */
+

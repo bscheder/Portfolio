@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Cart</h1>
+
+{% for elem in cart: %}
+<div class="card product-card-wide">
+    <div>
+        <div class="col-lg-3">
+            <div style="width: 100px; float:left; height:100px; margin:10px">
+                <img  class="card-img-top" src="{{cart[elem].image}}" alt="Card image cap">
+            </div>
+        </div>
+        <div class="div-container col-lg-4 col-md-12 col-sm-12" style="text-align: center;">
+            <div class="div-vertical-center">
+              <div>
+                <h3><i>{{elem}}</i></h3>
+              </div>
+            </div>
+        </div>
+        <div class="div-container col-lg-3 col-md-12 col-sm-12">
+            <div class="div-vertical-center">
+                <div class="input-group inline-group vertical-center" style="float:left">
+                    <button class="btn btn-outline-secondary btn-minus" onclick="this.parentNode.querySelector('input[type=number]').stepDown()" >
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <input class="form-control quantity" min="0" name="quantity" value="{{cart[elem].quantity}}" type="number">
+                    <button class="btn btn-outline-secondary btn-plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" >
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="div-container col-lg-3 col-md-12 col-sm-12" style="text-align: center;">
+            <div class="div-vertical-center">
+                    <h3><i><b> x {{cart[elem].price}} $</i></b></h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<div>
+    <a href="" class="btn btn-green btn-large btn-block" style="width: 90%; margin-left: 5%;">Checkout</a>
+</div>
+{% endblock %}
+
+
